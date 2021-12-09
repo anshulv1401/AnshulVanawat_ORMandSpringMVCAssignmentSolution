@@ -23,7 +23,7 @@ public class CustomerController {
 	public String listCustomers(Model model) {
 		List<Customer> customers = customerService.findAll();
 		model.addAttribute("customers", customers);
-		return "list-customers";
+		return "customers-list";
 	}
 
 	@RequestMapping("/new")
@@ -33,7 +33,7 @@ public class CustomerController {
 		model.addAttribute("newCustomer", true);
 		model.addAttribute("customer", customer);
 
-		return "edit-customer";
+		return "customer-form";
 	}
 
 	@RequestMapping("/edit")
@@ -43,7 +43,7 @@ public class CustomerController {
 		model.addAttribute("newCustomer", false);
 		model.addAttribute("customer", customer);
 
-		return "edit-customer";
+		return "customer-form";
 	}
 
 	@PostMapping("/save")

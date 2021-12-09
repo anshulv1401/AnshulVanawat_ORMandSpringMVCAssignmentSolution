@@ -8,6 +8,7 @@ import com.greatlearning.crmapp.model.Customer;
 
 @Service
 public interface CustomerService {
+
 	public List<Customer> findAll();
 
 	public Customer findById(int id);
@@ -15,4 +16,5 @@ public interface CustomerService {
 	public void save(Customer customer);
 
 	public void deleteById(int id);
+
 }

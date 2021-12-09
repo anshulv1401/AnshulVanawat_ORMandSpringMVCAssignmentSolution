@@ -1,18 +1,30 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html>
-	<head>
-		<meta http-equiv="refresh" content="0;url=/crmapp/customers/list" />
-		
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	</head>
-	<body>
-		<div class="container">
-			<h1>Customer Relationship Management</h1>
-			<hr />
-			
-			Visit <a href="/crmapp/customers/list">this page</a> to view the list of available Students
-		</div>
-		
-	</body>
+<head>
+<meta charset="utf-8">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1 class="bg-info text-white" style="text-align: center">Customer
+			Relationship Management</h1>
+		<hr />
+
+		<p style="text-align: center">Welcome To Customer Relationship
+			Management System</p>
+
+		<hr />
+		<p align="center">
+			<a style="align-self: center" href="/crmapp/customers/list"
+				class="btn btn-info">Enter CRMS</a>
+		</p>
+	</div>
+
+</body>
 </html>
