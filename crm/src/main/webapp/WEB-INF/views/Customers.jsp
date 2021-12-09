@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,18 +13,18 @@
 	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
 	crossorigin="anonymous">
 
-<title>Customers Directory</title>
+<title>Customer Relationship Management</title>
 </head>
 
 <body>
 	<div class="container">
-		<h3>_Customers Directory_</h3>
+		<h3>Customer Relationship Management</h3>
 		<hr>
 
 		<!-- Add a search form -->
 
-		<a href="/crm/customers/showFormForAdd"
-			class="btn btn-primary btn-sm mb-3">Add Customer</a>
+		<a href="/crm/customers/new" class="btn btn-primary btn-sm mb-3">Add
+			Customer</a>
 
 		<table class="table table-bordered table-striped">
 			<thead class="thead-dark">
@@ -41,18 +39,16 @@
 			<tbody>
 				<c:forEach items="${Customers}" var="tempCustomer">
 					<tr>
-						<td><c:out value="${tempCustomer.name}" /></td>
-						<td><c:out value="${tempCustomer.category}" /></td>
-						<td><c:out value="${tempCustomer.author}" /></td>
-						<td>
-							<!-- Add "update" button/link --> <a
-							href="/crm/customers/showFormForUpdate?customerId=${tempCustomer.id}"
-							class="btn btn-info btn-sm"> Update </a> <!-- Add "delete" button/link -->
-							<a href="/crm/customers/delete?customerId=${tempCustomer.id}"
+						<td><c:out value="${tempCustomer.firstName}" /></td>
+						<td><c:out value="${tempCustomer.lastName}" /></td>
+						<td><c:out value="${tempCustomer.email}" /></td>
+						<td><a
+							href="/crm/customers/edit?customerId=${customer.id}"
+							class="btn btn-info btn-sm"> Update </a> <a
+							href="/crm/customers/delete?customerId=${customer.id}"
 							class="btn btn-danger btn-sm"
-							onclick="if (!(confirm('Are you sure you want to delete this Customer?'))) return false">
-								Delete </a>
-						</td>
+							onclick="if (!(confirm('Are you sure you want to delete this Customer?'))) return false">Delete
+						</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

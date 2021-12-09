@@ -11,7 +11,7 @@
 			<h1>Customer Relationship Management</h1>
 			<hr />
 			
-			Visit <a href="/crm/customers/list">this page</a> to view the list of available Customers
+			Visit <a href="/crmapp/customers/list">this page</a> to view the list of available Students
 		</div>
 		
 	</body>

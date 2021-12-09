@@ -1,17 +1,12 @@
-package com.greatlearning.crm.service;
+package com.greatlearning.crmapp;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.greatlearning.crm.model.Customer;
-
 @Service
-public interface ICustomerService {
-
+public interface CustomerService {
 	public List<Customer> findAll();
-
-	public List<Customer> searchBy(String firstName, String LastName, String email);
 
 	public Customer findById(int id);
 

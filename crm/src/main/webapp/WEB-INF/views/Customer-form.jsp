@@ -17,9 +17,9 @@
 </head>
 <body>
 	<div class="container">
-		<h3>_Customer Directory_</h3>
+		<h3>Customer Relationship Management</h3>
 		<hr>
-		<p class="h4 mb-4">Customer</p>
+		<p class="h4 mb-4"><c:out value="${newCustomer ? 'Add a new Customer' : 'Update Customer'}" /></p>
 
 		<form action="/crm/customers/save" method="POST">
 			<!-- Add hidden form field to handle update -->

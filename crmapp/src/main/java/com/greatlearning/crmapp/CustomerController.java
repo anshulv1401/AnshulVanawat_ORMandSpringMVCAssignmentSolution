@@ -1,4 +1,4 @@
-package com.greatlearning.crm.controller;
+package com.greatlearning.crmapp;
 
 import java.util.List;
 
@@ -9,21 +9,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.greatlearning.crm.model.Customer;
-import com.greatlearning.crm.service.ICustomerService;
-
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
 
 	@Autowired
-	private ICustomerService customerService;
+	private CustomerService customerService;
 
-	@RequestMapping("/list")
-	public String listBooks(Model theModel) {
+	@RequestMapping("/list") // /customers/list
+	public String listCustomers(Model model) {
 		List<Customer> customers = customerService.findAll();
-		theModel.addAttribute("Customers", customers);
-		return "Customers";
+		model.addAttribute("customers", customers);
+		return "list-customers";
 	}
 
 	@RequestMapping("/new")
@@ -33,7 +30,7 @@ public class CustomerController {
 		model.addAttribute("newCustomer", true);
 		model.addAttribute("customer", customer);
 
-		return "Customer-form";
+		return "edit-customer";
 	}
 
 	@RequestMapping("/edit")
@@ -43,20 +40,20 @@ public class CustomerController {
 		model.addAttribute("newCustomer", false);
 		model.addAttribute("customer", customer);
 
-		return "Customer-form";
+		return "edit-customer";
 	}
 
 	@PostMapping("/save")
-	public String saveStudent(@RequestParam("id") int id, @RequestParam("firstName") String firstName,
-			@RequestParam("lastName") String lastName, @RequestParam("email") String email) {
+	public String saveCustomer(@RequestParam("id") int id, @RequestParam("firstname") String firstname,
+			@RequestParam("lastname") String lastname, @RequestParam("email") String email) {
 		Customer customer = null;
 
 		if (id == 0) {
-			customer = new Customer(firstName, lastName, email);
+			customer = new Customer(firstname, lastname, email);
 		} else {
 			customer = customerService.findById(id);
-			customer.setFirstName(firstName);
-			customer.setLastName(lastName);
+			customer.setFirstname(firstname);
+			customer.setLastname(lastname);
 			customer.setEmail(email);
 		}
 		customerService.save(customer);
@@ -70,4 +67,5 @@ public class CustomerController {
 
 		return "redirect:/customers/list";
 	}
+
 }

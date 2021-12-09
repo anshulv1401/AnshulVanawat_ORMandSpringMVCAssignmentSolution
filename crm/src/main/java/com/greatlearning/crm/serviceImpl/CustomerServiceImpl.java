@@ -16,22 +16,19 @@ import com.greatlearning.crm.service.ICustomerService;
 @Repository
 public class CustomerServiceImpl implements ICustomerService {
 
-	private SessionFactory sessionFactory;
 	private Session session;
 
-	CustomerServiceImpl(SessionFactory sessionFactory) {
-		System.out.println("CustomerServiceImpl");
-		this.sessionFactory = sessionFactory;
-
+	public CustomerServiceImpl(SessionFactory sessionFactory) {
 		try {
-			this.session = this.sessionFactory.getCurrentSession();
+			this.session = sessionFactory.getCurrentSession();
 		} catch (HibernateException e) {
-			this.session = this.sessionFactory.openSession();
+			this.session = sessionFactory.openSession();
 		}
 	}
 
 	@Transactional
 	public List<Customer> findAll() {
+
 		Transaction tx = session.beginTransaction();
 		List<Customer> customers = session.createQuery("from Customer").list();
 		tx.commit();
@@ -39,24 +36,50 @@ public class CustomerServiceImpl implements ICustomerService {
 		return customers;
 	}
 
+	@Transactional
 	public List<Customer> searchBy(String firstName, String LastName, String email) {
-		// TODO Auto-generated method stub
-		return null;
+		Transaction tx = session.beginTransaction();
+
+		String qry = "";
+
+		if (firstName.length() != 0 && LastName.length() != 0) {
+			qry = "from Customer where name like '%'" + firstName + "% or author like %" + LastName + "%";
+		} else if (firstName.length() != 0) {
+			qry = "from Customer where name like '%'" + firstName + "%";
+		} else if (LastName.length() != 0) {
+			qry = "from Customer where author like %" + LastName + "%";
+		} else {
+			System.out.println("cannot search without parameters");
+		}
+
+		List<Customer> customers = session.createQuery(qry).list();
+		tx.commit();
+
+		return customers;
 	}
 
-	public Customer findById(int Id) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional
+	public Customer findById(int id) {
+		Transaction tx = session.beginTransaction();
+		Customer customer = session.get(Customer.class, id);
+		tx.commit();
+		return customer;
 	}
 
-	public void save(Customer theBook) {
-		// TODO Auto-generated method stub
+	@Transactional
+	public void save(Customer customer) {
+		Transaction tx = session.beginTransaction();
+		session.saveOrUpdate(customer);
+		tx.commit();
 
 	}
 
-	public void deleteById(int Id) {
-		// TODO Auto-generated method stub
-
+	@Transactional
+	public void deleteById(int id) {
+		Transaction tx = session.beginTransaction();
+		Customer customer = session.get(Customer.class, id);
+		session.delete(customer);
+		tx.commit();
 	}
 
 }

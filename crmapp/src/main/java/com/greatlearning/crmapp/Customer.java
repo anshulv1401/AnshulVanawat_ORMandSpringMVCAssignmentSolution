@@ -1,4 +1,4 @@
-package com.greatlearning.crm.model;
+package com.greatlearning.crmapp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,19 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "customer")
 public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int id;
+	public int id;
 
 	@Column(name = "firstname")
-	private String firstName;
+	private String firstname;
 
 	@Column(name = "lastname")
-	private String lastName;
+	private String lastname;
 
 	@Column(name = "email")
 	private String email;
@@ -28,9 +28,10 @@ public class Customer {
 	public Customer() {
 	}
 
-	public Customer(String firstName, String lastName, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+	public Customer(String firstname, String lastname, String email) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
 		this.email = email;
 	}
 
@@ -42,20 +43,20 @@ public class Customer {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 	public String getEmail() {
@@ -68,7 +69,7 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Customer [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + "]";
 	}
-
+	
 }
