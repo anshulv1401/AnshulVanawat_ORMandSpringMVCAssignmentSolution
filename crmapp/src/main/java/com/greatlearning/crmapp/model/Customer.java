@@ -1,4 +1,4 @@
-package com.greatlearning.crmapp;
+package com.greatlearning.crmapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.greatlearning.crmapp;
+package com.greatlearning.crmapp.controller;
 
 import java.util.List;
 
@@ -8,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.greatlearning.crmapp.model.Customer;
+import com.greatlearning.crmapp.service.CustomerService;
 
 @Controller
 @RequestMapping("/customers")

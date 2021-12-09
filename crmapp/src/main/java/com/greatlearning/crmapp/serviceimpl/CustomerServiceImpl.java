@@ -1,4 +1,4 @@
-package com.greatlearning.crmapp;
+package com.greatlearning.crmapp.serviceimpl;
 
 import java.util.List;
 
@@ -7,6 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
+
+import com.greatlearning.crmapp.model.Customer;
+import com.greatlearning.crmapp.service.CustomerService;
 
 @Repository
 public class CustomerServiceImpl implements CustomerService {

@@ -1,8 +1,10 @@
-package com.greatlearning.crmapp;
+package com.greatlearning.crmapp.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import com.greatlearning.crmapp.model.Customer;
 
 @Service
 public interface CustomerService {
